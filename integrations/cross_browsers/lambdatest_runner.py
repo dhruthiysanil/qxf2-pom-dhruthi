@@ -51,14 +51,10 @@ class LambdaTestRunner(RemoteOptions):
             raise ValueError(f"Unsupported browser: {browser}")
 
         #  Set LambdaTest platform
-       
-     
         lambdatest_options = self.set_lambdatest_capabilities(
             remote_project_name, remote_build_name, testname
         )
-       
         lambdatest_options["platformName"] = f"{os_name} {os_version}" 
-        
         options.set_capability('LT:options', lambdatest_options)
         web_driver = webdriver.Remote(command_executor=self.lambdatest_url, options=options)
 
